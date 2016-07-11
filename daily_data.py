@@ -5,7 +5,6 @@ client = MongoClient('121.40.92.176', 27017)
 db = client.moral_db
 
 yesterday = (datetime.today() - timedelta(days=1)).strftime('%Y%m%d')
-print yesterday
 daily_data = db.data.aggregate([
     {'$match':{'day':yesterday }},
     {'$group':{
